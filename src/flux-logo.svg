@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="274" height="120" viewBox="0 0 274 120">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 100px;
+        font-family: Termina-Bold, Termina;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </defs>
+  <text id="Flux" class="cls-1" transform="translate(0 96)"><tspan x="0" y="0">Flux</tspan></text>
+</svg>
