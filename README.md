@@ -1,3 +1,13 @@
+
+# Links
+https://snazzymaps.com/style/132/light-gray 
+https://www.youtube.com/watch?v=iP3DnhCUIsE
+https://www.youtube.com/watch?v=WZcxJGmLbSo
+https://github.com/leighhalliday/google-maps-intro/blob/main/pages/places.js
+https://www.youtube.com/watch?v=BL2XVTqz9Ek
+https://www.youtube.com/watch?v=sv5niaHKo5g
+https://retool.com/use-case/react-ui-builder
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
