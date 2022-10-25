@@ -4,16 +4,14 @@ import { HiOutlineMail, HiOutlineDeviceMobile } from 'react-icons/hi'
 
 import { dialogue } from '../../dialogue'
 
-function QualifyingQuestionsSection() {
-  const [text] = dialogue.filter(item => item.section === 'Qualifying Questions Section')
+function AgencyKnownSection() {
+  const [text] = dialogue.filter(item => item.section === 'Agency Known Section')
   const textColor = useColorModeValue("black", "gray.700");
-
-  const firstName = "Will"
 
   return (
     <Box>
       <Center mb="40px">
-        <Heading as="h2" w="30ch" textAlign="center">{text.headings[0]}{firstName}{text.headings[1]}</Heading>
+        <Heading as="h2" w="30ch" textAlign="center">{text.headings[0]}</Heading>
       </Center>
       <VStack spacing={8}>
         <Box>
@@ -70,4 +68,4 @@ function QualifyingQuestionsSection() {
   )
 }
 
-export default QualifyingQuestionsSection
+export default AgencyKnownSection

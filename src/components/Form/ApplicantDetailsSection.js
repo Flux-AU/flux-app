@@ -2,19 +2,16 @@ import React from 'react'
 import { Grid, Center, Box, Heading, Stack, FormControl, FormLabel, VStack, HStack, Flex, useColorModeValue, Input, GridItem, Select, Icon } from '@chakra-ui/react'
 import { HiOutlineMail, HiOutlineDeviceMobile } from 'react-icons/hi'
 
-function ApplicantDetailsSection() {
-  const textColor = useColorModeValue("black", "gray.700");
+import { dialogue } from '../../dialogue'
 
-  const genderOptions = [
-    'Male',
-    'Female',
-    `I'd rather not say`
-  ]
+function ApplicantDetailsSection() {
+  const [text] = dialogue.filter(item => item.section === 'Applicant Details Section')
+  const textColor = useColorModeValue("black", "gray.700");
 
   return (
     <Box>
       <Center mb="40px">
-        <Heading as="h2" w="30ch" textAlign="center">You're only minutes away. Ready to go?</Heading>
+        <Heading as="h2" w="30ch" textAlign="center">{text.headings[0]}</Heading>
       </Center>
 
       {/* VStack spacing={[3, 3, 4]} */}
@@ -38,18 +35,18 @@ function ApplicantDetailsSection() {
                 fontSize="xs"
                 fontWeight="bold"
                 textTransform="uppercase"
-                position="absolute"
-                top="1px"
-                left={3}
+                // position="absolute"
+                // top="1px"
+                // left={3}
               >
-                First Name
+                {text.labels[0]}
               </FormLabel>
               <Input
                 focusBorderColor="brand.primary"
                 bg="white"
                 w={["200px"]}
-                pt={6}
-                pb={4}
+                // pt={6}
+                py={4}
                 px={3}
                 borderRadius="md"
                 fontSize="sm"
@@ -65,18 +62,18 @@ function ApplicantDetailsSection() {
               fontSize="xs"
               fontWeight="bold"
               textTransform="uppercase"
-              position="absolute"
-              top="1px"
-              left={3}
+              // position="absolute"
+              // top="1px"
+              // left={3}
             >
-              Last Name
+              {text.labels[1]}
             </FormLabel>
             <Input
               focusBorderColor="brand.primary"
               bg="white"
               w={["200px"]}
-              pt={6}
-              pb={4}
+              // pt={6}
+              py={4}
               px={3}
               borderRadius="md"
               fontSize="sm"
@@ -107,7 +104,8 @@ function ApplicantDetailsSection() {
                 pl={10}
                 borderRadius="md"
                 fontSize="xs"
-                placeholder='EMAIL ADDRESS'
+                placeholder={text.placeholders[0]}
+                textTransform="uppercase"
                 color={textColor}
               />
           </FormControl>
@@ -136,7 +134,8 @@ function ApplicantDetailsSection() {
               borderRadius="md"
               fontSize="xs"
               color={textColor}
-              placeholder="PHONE NUMBER"
+              textTransform="uppercase"
+              placeholder={text.placeholders[1]}
             />
           </FormControl>
         </GridItem>

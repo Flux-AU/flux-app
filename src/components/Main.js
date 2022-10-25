@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 import { 
   Show, 
   Tabs, 
@@ -22,46 +23,80 @@ import {
   useRadioGroup,
   VStack } from '@chakra-ui/react'
 import { BsCircleFill, BsCircle, BsBorderWidth } from "react-icons/bs"; 
+import { useRecoilValue } from 'recoil'
+import { countState, knowsAgentState } from '../atoms'
+
 
 import AccountSection from './Form/AccountSection';
 import StageSection from './Form/StageSection'
 import ApplicantDetailsSection from './Form/ApplicantDetailsSection';
+import PropertyAddressSection from './Form/PropertyAddressSection'
+import AgencyDetailsSection from './Form/AgencyDetailsSection';
+import AgencyKnownSection from './Form/AgencyKnownSection';
 import PropertyDetailsSection from './Form/PropertyDetailsSection';
+import QualifyingQuestionsSection from './Form/QualifyingQuestionsSection';
 
 function Main(){
+  const count= useRecoilValue(countState)
+  // const knowsAgent = useRecoilValue(knowsAgentState)
+
   // Set colour of text
   const textColor = useColorModeValue("black", "gray.700");
   const iconColor = useColorModeValue("brand.primary", "gray.700");
 
-  const [activeBullets, setActiveBullets] = useState({
-    account: true, 
-    stage: false,
-    applicantDetails: false,
-    propertyDetails: false,
-    qualifyingQuestions: false,
-    identityVerification: false,
-    review: false,
-  });
+  // const [activeBullets, setActiveBullets] = useState({
+  //   account: true, 
+  //   stage: false,
+  //   applicantDetails: false,
+  //   propertyDetails: false,
+  //   qualifyingQuestions: false,
+  //   identityVerification: false,
+  //   review: false,
+  // });
 
-  const [checkboxes, setCheckboxes] = useState({
-    design: false,
-    code: false,
-    develop: false
-  });
+  const sectionList = [
+    <AccountSection/>,
+    <StageSection />,
+    <ApplicantDetailsSection />,
+    <PropertyAddressSection />,
+    <AgencyDetailsSection />,
+    <AgencyKnownSection />,
+    <PropertyDetailsSection />,
+    <QualifyingQuestionsSection />
+  ]
+
+  const sectionUrls = [
+    'account',
+    'stage',
+    'applicant-details',
+    'property-address',
+    'agency-details',
+    'agency-information',
+    'property-details',
+    'qualifying-questions'
+  ]
+
+  // const [checkboxes, setCheckboxes] = useState({
+  //   design: false,
+  //   code: false,
+  //   develop: false
+  // });
 
   // Ref to switch tabs
   const accountTab = useRef();
   const stageTab = useRef();
   const applicantDetailsTab = useRef();
   const propertyDetailsTab = useRef();
+  // const contractTab = useRef();
   const qualifyingQuestionsTab = useRef();
   const identityVerificationTab = useRef();
-  const reviewTab = useRef();
+  const reviewTab = useRef();  
+
 
   return (
-    <div>
+    <div >
       <Tabs variant="unstyled" display="flex" flexDirection="column" overflow="hidden">
-        <Show breakpoint='(min-width: 768px)'>
+        {/* <Show breakpoint='(min-width: 768px)'>
           <TabList
               display={["none", "flex"]}
               align="center"
@@ -439,19 +474,10 @@ function Main(){
               </Flex>
             </Tab>
           </TabList>
-        </Show>
-        <TabPanels mt="24px" maxW={{ md: "90%", lg: "100%" }}>
-          <TabPanel >
-            <AccountSection />
-          </TabPanel>
-          <TabPanel >
-            <StageSection />
-          </TabPanel>
-          <TabPanel >
-            <ApplicantDetailsSection />
-          </TabPanel>
-          <TabPanel >
-            <PropertyDetailsSection />
+        </Show> */}
+        <TabPanels mt="24px" maxW={{ md: "90%", lg: "100%" }} mx='auto'>
+          <TabPanel>
+            {sectionList[count]}
           </TabPanel>
         </TabPanels>
       </Tabs>

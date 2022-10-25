@@ -2,15 +2,10 @@ import React from 'react'
 import { Box, Heading, Stack, FormControl, FormLabel, VStack, Flex, useRadioGroup } from '@chakra-ui/react'
 
 import RadioCard from './RadioCard';
+import { dialogue } from '../../dialogue'
 
 function AccountSection() {
-
-  const radioOptions = [
-    `I’ve been accepted and need a bond`, 
-    `I’ve found a property`,
-    `I’m viewing properties`,
-    `I’m researching properties`
-  ]
+  const [text] = dialogue.filter(item => item.section === 'Stage Section')
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'framework',
@@ -23,14 +18,14 @@ function AccountSection() {
   return (
     <>
       <Flex justify="center" mb="40px">
-        <Heading as="h2">What stage are you at?</Heading>
+        <Heading as="h2" textAlign='center'>{text.headings[0]}</Heading>
       </Flex>
       <Stack direction="column" spacing={{ sm: "20px", lg: "35px" }} w="100%" alignSelf="center" justifySelf="center" mb={10}>
         <Flex direction="column" align="center">
           <FormControl id="stage">
             <FormLabel cursor="pointer" mb="16px" mx="auto" >
               <VStack {...group} spacing={[3, 3, 4]}>
-                {radioOptions.map((value) => {
+                {text.options.map((value) => {
                   const radio = getRadioProps({ value })
                   return (
                     <RadioCard key={value} {...radio} w={['250px', '400px']}>
