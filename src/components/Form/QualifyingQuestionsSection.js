@@ -8,14 +8,14 @@ function QualifyingQuestionsSection() {
   const [text] = dialogue.filter(item => item.section === 'Qualifying Questions Section')
   const textColor = useColorModeValue("black", "gray.700");
 
-  const firstName = "Will"
+  const firstName = "{FirstName}"
 
   return (
     <Box>
       <Center mb="40px">
         <Heading as="h2" w="30ch" textAlign="center">{text.headings[0]}{firstName}{text.headings[1]}</Heading>
       </Center>
-      <VStack spacing={8}>
+      <HStack spacing={8} align="center" justify="center">
         <Box>
           <FormControl>
               <FormLabel
@@ -64,7 +64,7 @@ function QualifyingQuestionsSection() {
             />
           </FormControl>
         </Box>
-      </VStack>
+      </HStack>
       
     </Box>
   )

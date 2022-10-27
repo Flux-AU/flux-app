@@ -46,7 +46,7 @@ function ApplicantDetailsSection() {
                 bg="white"
                 w={["200px"]}
                 // pt={6}
-                py={4}
+                py  ={4}
                 px={3}
                 borderRadius="md"
                 fontSize="sm"

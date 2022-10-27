@@ -2,7 +2,7 @@ export const dialogue = [
   {
     section: 'Account Section',
     headings: [
-      `Hey! I'm Alicja.`,
+      `Hey! I'm {Bot Name}.`,
       `Do you already have a Flux account?`
     ],
     text: [

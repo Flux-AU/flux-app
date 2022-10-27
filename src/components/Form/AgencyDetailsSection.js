@@ -31,7 +31,7 @@ function AgencyDetailsSection() {
                 {text.options.map((value) => {
                   const radio = getRadioProps({ value })
                   return (
-                    <RadioCard key={value} {...radio} w={["200px", "300px"]} onClick={() => setAgent(value == 'Yes' ? true : false)}>
+                    <RadioCard key={value} {...radio} w={["200px", "300px"]} onClick={() => setAgent(value === 'Yes' ? true : false)}>
                       {value}
                     </RadioCard>
                   )

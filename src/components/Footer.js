@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Box, Center, Stack, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { countState, knowsAgentState } from '../atoms'
 
 const sectionUrls = [
@@ -19,9 +19,11 @@ const sectionUrls = [
 function Footer(){
   let navigate = useNavigate()
   const [ count, setCount ] = useRecoilState(countState)
+  const knowsAgent = useRecoilValue(knowsAgentState)
 
   // call function whenver count state updates
   useEffect(() => {
+    console.log('knowsAgent', knowsAgent)
     console.log(count)
     urlHandler()
   }, [count])
@@ -34,14 +36,14 @@ function Footer(){
   const handleBack = () => {
     if(count === 0){
       return
-    } else if (knowsAgentState){ 
+    } else if (!knowsAgent){ 
       setCount(count-2)
     } else {
       setCount(count-1)
     }
   }
   const handleNext = () => {
-    if (knowsAgentState) {
+    if (!knowsAgent) {
       setCount(count+2)
     } else{
       setCount(count+1)
